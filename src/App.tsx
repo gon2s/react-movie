@@ -1,11 +1,14 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { themes } from './constants';
+import * as Styled from './styles';
 
 function App() {
   return (
     <ThemeProvider theme={themes}>
-      <div />
+      <Styled.Wrapper>
+        <Styled.Box />
+      </Styled.Wrapper>
     </ThemeProvider>
   );
 }
