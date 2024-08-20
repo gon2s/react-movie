@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeProvider theme={themes}>
       <Styled.Wrapper>
-        <Styled.Box />
+        <Styled.InnerBoxWrapper />
       </Styled.Wrapper>
     </ThemeProvider>
   );
