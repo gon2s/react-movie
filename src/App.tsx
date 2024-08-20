@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Animation, Gesture, Variant } from './components';
+import { Animation, Gesture, MotionValue, Variant } from './components';
 import { themes } from './constants';
 import * as Styled from './styles';
 
@@ -14,6 +14,9 @@ function App() {
           <Gesture />
         </Styled.InnerBoxWrapper>
       </Styled.Wrapper>
+      <Styled.ScrollWrapper>
+        <MotionValue />
+      </Styled.ScrollWrapper>
     </ThemeProvider>
   );
 }

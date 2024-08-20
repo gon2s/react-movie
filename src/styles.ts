@@ -10,10 +10,16 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerBoxWrapper = styled.div`
-  padding: 24px;
+  padding: 36px;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
+`;
+
+export const ScrollWrapper = styled.div`
+  align-items: center;
+  padding: 36px;
+  width: 1920px;
 `;
