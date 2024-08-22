@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 import ICONS from '@src/assets';
 
@@ -49,11 +50,36 @@ export const Item = styled.li`
   }
 `;
 
-export const CircleItem = styled.span`
+export const CircleItem = styled(motion.span)`
   position: absolute;
   bottom: -10px;
   width: 6px;
   height: 6px;
   border-radius: 3px;
   background-color: ${({ theme }) => theme.colors.red};
+`;
+
+export const Search = styled.span`
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  svg {
+    height: 25px;
+  }
+`;
+
+export const Input = styled(motion.input)`
+  transform-origin: right center;
+  position: absolute;
+  right: 0px;
+  padding: 8px 12px;
+  padding-left: 36px;
+  z-index: -1;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid ${({ theme }) => theme.colors.white.lighter};
 `;
