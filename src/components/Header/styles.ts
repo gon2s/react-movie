@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 import ICONS from '@src/assets';
+import { MediaQuery } from '@src/constants';
 
 export const Nav = styled.nav`
   display: flex;
@@ -13,12 +14,20 @@ export const Nav = styled.nav`
   padding: 4px 60px;
   color: ${({ theme }) => theme.colors.white.primary};
   background-color: ${({ theme }) => theme.colors.black.primary};
+
+  ${MediaQuery.FROM_TABLET} {
+    padding: 4px 24px;
+  }
 `;
 
 export const Col = styled.div`
   display: flex;
   align-items: center;
   gap: 50px;
+
+  ${MediaQuery.FROM_TABLET} {
+    gap: 30px;
+  }
 `;
 
 export const Logo = styled(ICONS.Logo)`
@@ -30,12 +39,21 @@ export const Logo = styled(ICONS.Logo)`
     stroke-width: 6px;
     stroke: white;
   }
+
+  ${MediaQuery.FROM_TABLET} {
+    width: 120px;
+    height: 60px;
+  }
 `;
 
 export const Items = styled.ul`
   display: flex;
   align-items: center;
   gap: 50px;
+
+  ${MediaQuery.FROM_TABLET} {
+    gap: 20px;
+  }
 `;
 
 export const Item = styled.li`
@@ -82,4 +100,9 @@ export const Input = styled(motion.input)`
   border-radius: 8px;
   background-color: transparent;
   border: 1px solid ${({ theme }) => theme.colors.white.lighter};
+
+  ${MediaQuery.FROM_TABLET} {
+    padding: 6px 12px;
+    padding-left: 36px;
+  }
 `;

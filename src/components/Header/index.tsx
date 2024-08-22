@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import * as S from './styles';
 
 function Header() {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -11,7 +12,13 @@ function Header() {
   return (
     <S.Nav>
       <S.Col>
-        <S.Logo viewBox="60 80 1140 600" />
+        <S.Logo
+          viewBox="60 80 1140 600"
+          onClick={() => {
+            navigate('/');
+            window.location.reload();
+          }}
+        />
         <S.Items>
           <S.Item>
             <Link to={'/'}>{'HOME'}</Link>
