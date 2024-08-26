@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import ICONS from '@src/assets';
 import { MediaQuery } from '@src/constants';
 
-export const Nav = styled.nav`
+export const Nav = styled(motion.nav)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,8 +12,9 @@ export const Nav = styled.nav`
   top: 0px;
   font-size: 14px;
   padding: 4px 60px;
+  height: 80px;
   color: ${({ theme }) => theme.colors.white.primary};
-  background-color: ${({ theme }) => theme.colors.black.primary};
+  /* background-color: ${({ theme }) => theme.colors.black.primary}; */
 
   ${MediaQuery.FROM_TABLET} {
     padding: 4px 24px;

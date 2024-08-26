@@ -4,7 +4,7 @@ import { Header } from '@src/components';
 
 function HomeScreen() {
   return (
-    <div>
+    <div style={{ height: '200vh' }}>
       <Header />
       <Outlet />
     </div>

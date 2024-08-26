@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import * as S from './styles';
 
 function Header() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const { scrollY } = useScroll();
+  const scrollValue = useTransform(
+    scrollY,
+    [0, 80],
+    ['rgba(0,0,0,0)', 'rgba(0,0,0,1)'],
+  );
+
+  const inputAnimation = useAnimation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  const handleToggleSearch = useCallback(() => {
+    if (isSearchOpen) {
+      inputAnimation.start({ scaleX: 0 }).catch(() => {});
+    } else {
+      inputAnimation.start({ scaleX: 1 }).catch(() => {});
+    }
+    setIsSearchOpen(prev => !prev);
+  }, [isSearchOpen, inputAnimation]);
+
+  useEffect(() => {});
+
   return (
-    <S.Nav>
+    <S.Nav style={{ backgroundColor: scrollValue }}>
       <S.Col>
         <S.Logo
           viewBox="60 80 1140 600"
@@ -34,7 +53,7 @@ function Header() {
         <S.Search>
           <motion.svg
             style={{ cursor: 'pointer' }}
-            onClick={() => setIsSearchOpen(prev => !prev)}
+            onClick={handleToggleSearch}
             animate={{ x: isSearchOpen ? -188 : 0 }}
             transition={{ type: 'linear' }}
             fill={'currentColor'}
@@ -47,8 +66,9 @@ function Header() {
             />
           </motion.svg>
           <S.Input
+            animate={inputAnimation}
+            initial={{ scaleX: 0 }}
             transition={{ type: 'linear' }}
-            animate={{ scaleX: isSearchOpen ? 1 : 0 }}
             placeholder={'search for movie or tv show...'}
           />
         </S.Search>
