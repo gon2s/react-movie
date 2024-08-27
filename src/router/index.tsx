@@ -6,16 +6,14 @@ const AppRouter = createBrowserRouter([
   {
     path: '/',
     element: <HomeScreen />,
-    children: [
-      {
-        path: 'tv',
-        element: <TvScreen />,
-      },
-      {
-        path: 'search',
-        element: <SearchScreen />,
-      },
-    ],
+  },
+  {
+    path: 'tv',
+    element: <TvScreen />,
+  },
+  {
+    path: 'search',
+    element: <SearchScreen />,
   },
 ]);
 
