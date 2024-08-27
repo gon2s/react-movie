@@ -31,3 +31,5 @@ export const request = async <T>({
       return Promise.reject(new Error('Invalid HttpMethod'));
   }
 };
+
+export * from './types';
