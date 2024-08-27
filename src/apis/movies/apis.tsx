@@ -8,7 +8,7 @@ const URL = {
 export const requestFetchMovies = async () => {
   const { data } = await request<Response<IMovie>>({
     method: 'get',
-    url: URL.NOW_PLAYING,
+    url: `${URL.NOW_PLAYING}`,
   });
   return data;
 };
