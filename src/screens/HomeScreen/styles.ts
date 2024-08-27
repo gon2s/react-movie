@@ -85,13 +85,3 @@ export const Row = styled(motion.div)`
   position: absolute;
   width: 100%;
 `;
-
-export const SliderItem = styled(motion.div)<{ bgImg?: string }>`
-  cursor: pointer;
-  background-color: ${({ theme }) => theme.colors.white.primary};
-  color: ${({ theme }) => theme.colors.black.primary};
-  height: 200px;
-  background-image: url(${({ bgImg }) => bgImg});
-  background-size: cover;
-  background-position: center center;
-`;

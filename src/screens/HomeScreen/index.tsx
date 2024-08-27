@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { requestFetchMovies } from '@src/apis';
 import { Header } from '@src/components';
 import { getImgUrl } from '@src/utils';
+import { Slider } from './components';
 import * as S from './styles';
 
 const OFFSET = 6;
@@ -25,7 +26,7 @@ function HomeScreen() {
       setIsLeaving(prev => !prev);
 
       const totalMovies = data.results.length - 1;
-      const maxIndex = Math.ceil(totalMovies / OFFSET) - 1;
+      const maxIndex = Math.floor(totalMovies / OFFSET) - 1;
 
       setIndex(prev => (prev === maxIndex ? 0 : prev + 1));
     }
@@ -66,15 +67,7 @@ function HomeScreen() {
                 {data?.results
                   .slice(1)
                   .slice(OFFSET * index, OFFSET * (index + 1))
-                  .map(li => (
-                    <S.SliderItem
-                      bgImg={getImgUrl({
-                        id: li?.backdrop_path || '',
-                        format: 'w500',
-                      })}
-                      key={li.id}
-                    />
-                  ))}
+                  .map(li => <Slider key={li.id} data={li} />)}
               </S.Row>
             </AnimatePresence>
           </S.Slider>
