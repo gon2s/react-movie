@@ -22,8 +22,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   flex-grow: 1;
   background-color: ${({ theme }) => theme.colors.black.primary};
-  border: 1px solid white;
-
   overflow-x: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
@@ -115,15 +113,55 @@ export const Overlay = styled(motion.div)`
 `;
 
 export const MovieDetailWrapper = styled(motion.div)`
-  cursor: pointer;
-  width: 240px;
-  aspect-ratio: 1;
+  position: relative;
+  overflow-y: auto;
+  width: 40vw;
+  height: 60vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   border-radius: 16px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.black.lighter};
   box-shadow:
     0 2px 3px rgba(0, 0, 0, 0.1),
     0 10px 20px rgba(0, 0, 0, 0.06);
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ${MediaQuery.FROM_TABLET} {
+    height: 50vh;
+  }
+`;
+
+export const MovieDetailImgWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 91 / 50;
+`;
+
+export const MovieDetailImg = styled.img`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, black, transparent);
+  background-size: cover;
+  background-position: center center;
+`;
+
+export const MovieDetailTitle = styled.h3`
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white.lighter};
+`;
+
+export const MovieDetailOverview = styled.p`
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  top: -80px;
+  color: ${({ theme }) => theme.colors.white.lighter};
 `;

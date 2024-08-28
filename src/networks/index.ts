@@ -18,15 +18,16 @@ export const request = async <T>({
   queryParams,
   requestBody,
 }: RequestParams): Promise<AxiosResponse<T>> => {
+  const query = { ...queryParams };
   switch (method) {
     case 'get':
-      return client.get(url, { params: queryParams });
+      return client.get(url, { params: query });
     case 'post':
-      return client.post(url, requestBody, { params: queryParams });
+      return client.post(url, requestBody, { params: query });
     case 'put':
-      return client.put(url, requestBody, { params: queryParams });
+      return client.put(url, requestBody, { params: query });
     case 'delete':
-      return client.delete(url, { data: requestBody, params: queryParams });
+      return client.delete(url, { data: requestBody, params: query });
     default:
       return Promise.reject(new Error('Invalid HttpMethod'));
   }

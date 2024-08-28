@@ -1,8 +1,8 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useMatch, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { AnimatePresence, useScroll } from 'framer-motion';
-import { requestFetchMovies } from '@src/apis';
+import { fetchMoviesDetail, fetchNowPlayingMovies } from '@src/apis';
 import { Header } from '@src/components';
 import { getImgUrl } from '@src/utils';
 import { Slider } from './components';
@@ -18,8 +18,18 @@ function HomeScreen() {
 
   const { data, isLoading } = useQuery({
     retryOnMount: false,
-    queryKey: ['HOME_NOW_PLAYING'],
-    queryFn: requestFetchMovies,
+    queryKey: ['HOME_MOVIE_NOW_PLAYING'],
+    queryFn: fetchNowPlayingMovies,
+  });
+
+  const { data: detailData } = useQuery({
+    retryOnMount: false,
+    queryKey: ['HOME_MOVIE_DETAIL', isDetailMatch?.params.movieId],
+    queryFn: () =>
+      fetchMoviesDetail({
+        movie_id: Number(isDetailMatch?.params.movieId) || 0,
+      }),
+    enabled: !!isDetailMatch?.params.movieId,
   });
 
   const thumbnailData = useMemo(() => data?.results[0], [data?.results]);
@@ -44,6 +54,10 @@ function HomeScreen() {
     },
     [navigate],
   );
+
+  useEffect(() => {
+    navigate('');
+  }, [navigate]);
 
   return (
     <S.Wrapper>
@@ -102,7 +116,12 @@ function HomeScreen() {
       )}
       <AnimatePresence>
         {isDetailMatch ? (
-          <S.Overlay style={{ top: scrollY }}>
+          <S.Overlay
+            style={{ top: scrollY }}
+            onClick={() => {
+              navigate('');
+            }}
+          >
             <S.MovieDetailWrapper
               onClick={e => {
                 e.stopPropagation();
@@ -112,7 +131,23 @@ function HomeScreen() {
               animate={'animate'}
               exit={'exit'}
               layoutId={isDetailMatch.params.movieId?.toString()}
-            />
+            >
+              {detailData && (
+                <>
+                  <S.MovieDetailImgWrapper>
+                    <S.MovieDetailImg
+                      src={getImgUrl({
+                        id: detailData.backdrop_path.slice(1),
+                      })}
+                    />
+                    <S.MovieDetailTitle>{detailData.title}</S.MovieDetailTitle>
+                  </S.MovieDetailImgWrapper>
+                  <S.MovieDetailOverview>
+                    {detailData.overview}
+                  </S.MovieDetailOverview>
+                </>
+              )}
+            </S.MovieDetailWrapper>
           </S.Overlay>
         ) : null}
       </AnimatePresence>
