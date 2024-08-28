@@ -40,7 +40,9 @@ function HomeScreen() {
         <>
           <Header />
           <S.Banner
-            bgImg={getImgUrl({ id: thumbnailData?.backdrop_path || '' })}
+            bgImg={getImgUrl({
+              id: thumbnailData?.backdrop_path.slice(1) || '',
+            })}
             onClick={handleIncreaseIndex}
           >
             <S.Title>{thumbnailData?.title}</S.Title>

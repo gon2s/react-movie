@@ -19,7 +19,7 @@ function Slider({ data, style }: SliderProps) {
         type: 'tween',
       }}
       bgImg={getImgUrl({
-        id: data?.backdrop_path || '',
+        id: data?.backdrop_path.slice(1) || '',
         format: 'w500',
       })}
     >
