@@ -1,27 +1,28 @@
 import React, { CSSProperties } from 'react';
+import { MotionProps } from 'framer-motion';
 import { IMovie } from '@src/apis';
 import { getImgUrl } from '@src/utils';
 import * as S from './styles';
 
-interface SliderProps {
+interface SliderProps extends MotionProps {
   data: IMovie;
+  onClick: () => void;
   style?: CSSProperties;
 }
 
-function Slider({ data, style }: SliderProps) {
+function Slider({ data, onClick, style, ...rest }: SliderProps) {
   return (
     <S.SliderItem
+      onClick={onClick}
       style={style}
       variants={S.sliderVariant}
       whileHover={'hover'}
       initial={'initial'}
-      transition={{
-        type: 'tween',
-      }}
       bgImg={getImgUrl({
         id: data?.backdrop_path.slice(1) || '',
         format: 'w500',
       })}
+      {...rest}
     >
       <S.InfoWrapper variants={S.infoVariant}>
         <h4>{data.title}</h4>
