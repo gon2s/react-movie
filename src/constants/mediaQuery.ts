@@ -1,7 +1,7 @@
 type BreakPointType = 'tablet';
 
 export const breakpoints: Record<BreakPointType, number> = {
-  tablet: 768,
+  tablet: 960,
 };
 
 export const MediaQuery = {

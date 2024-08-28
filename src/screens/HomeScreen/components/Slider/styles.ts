@@ -1,5 +1,6 @@
 import { motion, Variants } from 'framer-motion';
 import { styled } from 'styled-components';
+import { MediaQuery } from '@src/constants';
 
 export const sliderVariant: Variants = {
   initial: {
@@ -20,17 +21,21 @@ export const SliderItem = styled(motion.div)<{ bgImg?: string }>`
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.white.darker};
   color: ${({ theme }) => theme.colors.black.primary};
-  height: 200px;
+  height: 240px;
   background-image: url(${({ bgImg }) => bgImg});
   background-size: cover;
   background-position: center center;
+  transform-origin: center 100%;
   &:first-child {
     transform-origin: center left;
   }
   &:last-child {
     transform-origin: center right;
   }
-  transform-origin: center 100%;
+
+  ${MediaQuery.FROM_TABLET} {
+    height: 120px;
+  }
 `;
 
 export const infoVariant: Variants = {
@@ -53,7 +58,6 @@ export const InfoWrapper = styled(motion.div)`
   bottom: 0;
   opacity: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.black.lighter};
   h4 {
