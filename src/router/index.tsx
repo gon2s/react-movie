@@ -4,7 +4,7 @@ import { HomeScreen, SearchScreen, TvScreen } from '@src/screens';
 
 const AppRouter = createBrowserRouter([
   {
-    path: '/',
+    path: '/*',
     element: <HomeScreen />,
   },
   {
