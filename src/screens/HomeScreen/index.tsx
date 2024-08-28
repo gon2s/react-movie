@@ -75,43 +75,49 @@ function HomeScreen() {
             <S.Title>{thumbnailData?.title}</S.Title>
             <S.OverView>{thumbnailData?.overview}</S.OverView>
           </S.Banner>
-          <S.Slider>
-            <AnimatePresence
-              initial={false}
-              onExitComplete={() => {
-                setIsLeaving(prev => !prev);
-              }}
-            >
-              <S.Row
-                variants={S.sliderVariants}
-                initial={'hidden'}
-                animate={'visible'}
-                exit={'exit'}
-                key={index}
-                transition={{
-                  type: 'tween',
-                  duration: 0.5,
+          <S.SliderWrapper>
+            <h2>
+              {'Popular on '}
+              <span>{'Netflix'}</span>
+            </h2>
+            <S.Slider>
+              <AnimatePresence
+                initial={false}
+                onExitComplete={() => {
+                  setIsLeaving(prev => !prev);
                 }}
               >
-                {data?.results
-                  .slice(1)
-                  .slice(OFFSET * index, OFFSET * (index + 1))
-                  .map(li => (
-                    <Slider
-                      key={li.id}
-                      layoutId={li.id.toString()}
-                      data={li}
-                      onClick={() => {
-                        handleShowDetailMovie(li.id);
-                      }}
-                      transition={{
-                        type: 'tween',
-                      }}
-                    />
-                  ))}
-              </S.Row>
-            </AnimatePresence>
-          </S.Slider>
+                <S.Row
+                  variants={S.sliderVariants}
+                  initial={'hidden'}
+                  animate={'visible'}
+                  exit={'exit'}
+                  key={index}
+                  transition={{
+                    type: 'tween',
+                    duration: 0.5,
+                  }}
+                >
+                  {data?.results
+                    .slice(1)
+                    .slice(OFFSET * index, OFFSET * (index + 1))
+                    .map(li => (
+                      <Slider
+                        key={li.id}
+                        layoutId={li.id.toString()}
+                        data={li}
+                        onClick={() => {
+                          handleShowDetailMovie(li.id);
+                        }}
+                        transition={{
+                          type: 'tween',
+                        }}
+                      />
+                    ))}
+                </S.Row>
+              </AnimatePresence>
+            </S.Slider>
+          </S.SliderWrapper>
         </>
       )}
       <AnimatePresence>

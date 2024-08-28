@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
+import { useAnimation, useScroll, useTransform } from 'framer-motion';
 import * as S from './styles';
 
 function Header() {
@@ -17,6 +17,7 @@ function Header() {
   const inputAnimation = useAnimation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleToggleSearch = useCallback(() => {
     if (isSearchOpen) {
       inputAnimation.start({ scaleX: 0 }).catch(() => {});
@@ -25,8 +26,6 @@ function Header() {
     }
     setIsSearchOpen(prev => !prev);
   }, [isSearchOpen, inputAnimation]);
-
-  useEffect(() => {});
 
   return (
     <S.Nav style={{ backgroundColor: scrollValue }}>
@@ -49,7 +48,7 @@ function Header() {
           </S.Item>
         </S.Items>
       </S.Col>
-      <S.Col>
+      {/* <S.Col>
         <S.Search>
           <motion.svg
             style={{ cursor: 'pointer' }}
@@ -72,7 +71,7 @@ function Header() {
             placeholder={'search for movie or tv show...'}
           />
         </S.Search>
-      </S.Col>
+      </S.Col> */}
     </S.Nav>
   );
 }

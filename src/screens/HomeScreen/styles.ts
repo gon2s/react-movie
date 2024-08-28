@@ -28,6 +28,10 @@ export const Wrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  ${MediaQuery.FROM_TABLET} {
+    height: 160vh;
+  }
 `;
 
 export const Loader = styled.div`
@@ -49,7 +53,7 @@ export const Banner = styled.div<{ bgImg?: string }>`
   background-size: cover;
 
   ${MediaQuery.FROM_TABLET} {
-    margin-top: 48px;
+    padding-top: 80px;
   }
 `;
 
@@ -63,10 +67,26 @@ export const Title = styled.h2`
 
 export const OverView = styled.div`
   font-size: 20px;
-  width: 50%;
+  width: 60%;
 
   ${MediaQuery.FROM_TABLET} {
     font-size: 16px;
+  }
+`;
+
+export const SliderWrapper = styled.div`
+  margin-top: -60px;
+  h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+  span {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  ${MediaQuery.FROM_TABLET} {
+    margin-top: -20px;
   }
 `;
 
@@ -91,6 +111,9 @@ export const overlayVariants: Variants = {
   },
   animate: {
     opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
   },
   exit: {
     opacity: 0,
@@ -116,7 +139,7 @@ export const MovieDetailWrapper = styled(motion.div)`
   position: relative;
   overflow-y: auto;
   width: 40vw;
-  height: 60vh;
+  max-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,7 +154,7 @@ export const MovieDetailWrapper = styled(motion.div)`
     display: none;
   }
   ${MediaQuery.FROM_TABLET} {
-    height: 50vh;
+    max-height: 40vh;
   }
 `;
 

@@ -65,4 +65,11 @@ export const InfoWrapper = styled(motion.div)`
     font-size: 18px;
     color: ${({ theme }) => theme.colors.white.darker};
   }
+
+  ${MediaQuery.FROM_TABLET} {
+    padding: 8px;
+    h4 {
+      font-size: 12px;
+    }
+  }
 `;

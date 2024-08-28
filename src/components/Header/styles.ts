@@ -78,7 +78,7 @@ export const CircleItem = styled(motion.span)`
   background-color: ${({ theme }) => theme.colors.red};
 `;
 
-export const Search = styled.span`
+export const Search = styled.form`
   position: relative;
   color: white;
   display: flex;
