@@ -1,46 +1,93 @@
-# Getting Started with Create React App
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="100" height="40">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">NETFLIX CLONE</h3>
 
-## Available Scripts
+  <p align="center">
+    <a  href="https://react-movie-git-main-gon2s-projects.vercel.app/">View Demo</a>
+  </p>
+</div>
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>목차</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li><a href="#built-with">Built With</a></li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
 
-### `npm test`
+## About The Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="images/preview.png" alt="Logo" width="640" height="480">
 
-### `npm run build`
+<br/>
+React를 이용한 Netflix 클론 프로젝트 입니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
+영화 리스트 / 영화 상세정보 조회 api 연동 및 리스트 slider 연동,
+<br/>
+영화 상세정보 카드 모달 애니메이션 등을 구현하였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br/>
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built With
 
-### `npm run eject`
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+<br/>
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+<br/>
+![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
+<br/>
+![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue)
+<br/>
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br/>
+<br/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- GETTING STARTED -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Getting Started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/gon2s/react-movie.git
+   ```
+2. Install YARN packages
+   ```sh
+   yarn install
+   ```
+3. Start Project
+   ```sh
+   yarn start
+   ```
 
-## Learn More
+<br/>
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- CONTACT -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact
+
+NAME > 유승곤
+<br/>
+EMAIL > qpple6@naver.com
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
