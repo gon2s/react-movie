@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useMatch, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { AnimatePresence, useScroll } from 'framer-motion';
-import { fetchMoviesDetail, fetchNowPlayingMovies } from '@src/apis';
+import { fetchNowPlayingMovies } from '@src/apis';
 import { Header } from '@src/components';
 import { getImgUrl } from '@src/utils';
 import { Slider } from './components';
@@ -22,15 +22,23 @@ function HomeScreen() {
     queryFn: fetchNowPlayingMovies,
   });
 
-  const { data: detailData } = useQuery({
-    retryOnMount: false,
-    queryKey: ['HOME_MOVIE_DETAIL', isDetailMatch?.params.movieId],
-    queryFn: () =>
-      fetchMoviesDetail({
-        movie_id: Number(isDetailMatch?.params.movieId) || 0,
-      }),
-    enabled: !!isDetailMatch?.params.movieId,
-  });
+  // const { data: detailData } = useQuery({
+  //   retryOnMount: false,
+  //   queryKey: ['HOME_MOVIE_DETAIL', isDetailMatch?.params.movieId],
+  //   queryFn: () =>
+  //     fetchMoviesDetail({
+  //       movie_id: Number(isDetailMatch?.params.movieId) || 0,
+  //     }),
+  //   enabled: !!isDetailMatch?.params.movieId,
+  // });
+
+  const detailData = useMemo(
+    () =>
+      data?.results.find(
+        li => li.id.toString() === isDetailMatch?.params?.movieId,
+      ),
+    [data?.results, isDetailMatch?.params],
+  );
 
   const thumbnailData = useMemo(() => data?.results[0], [data?.results]);
 

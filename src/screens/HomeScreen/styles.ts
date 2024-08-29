@@ -112,7 +112,7 @@ export const overlayVariants: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.2,
+      type: 'spring',
     },
   },
   exit: {
